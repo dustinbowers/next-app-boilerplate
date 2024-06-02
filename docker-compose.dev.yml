@@ -14,8 +14,8 @@ services:
       # - "127.0.0.1:8080:3000" # NOTE: this is binds to localhost so it's not available externally
       - "8080:3000"
     networks:
-      - chronx-dev-network
+      - next-app-network
 
 networks:
-  chronx-dev-network:
+  next-app-network:
     external: true

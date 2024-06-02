@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  next-app:
+    container_name: next-app
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./next-app/src:/app/src
+      - ./next-app/public:/app/public
+    restart: always
+    ports:
+      # - "127.0.0.1:8080:3000" # NOTE: this is binds to localhost so it's not available externally
+      - "8080:3000"
+    networks:
+      - chronx-dev-network
+
+networks:
+  chronx-dev-network:
+    external: true

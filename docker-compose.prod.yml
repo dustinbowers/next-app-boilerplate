@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  next-app:
+    container_name: next-ap
+    build:
+      context: .
+      dockerfile: prod.Dockerfile
+    restart: always
+    ports:
+      - "127.0.0.1:70:3000" # NOTE: this binds to localhost so won't be accessible externally unless you change it
+    networks:
+      - next-app-network
+
+networks:
+  next-app-network:
+    external: true
